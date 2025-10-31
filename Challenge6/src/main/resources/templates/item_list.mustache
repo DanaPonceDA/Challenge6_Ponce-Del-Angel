@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Catálogo de Artículos</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h1>Artículos a la Venta</h1>
+    <hr>
+
+    {{#items}}
+    <table id="item-list-table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Precio</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#.}}
+            <tr>
+                <td><a href="/items/{{id}}" class="item-name-link">{{name}}</a></td>
+                <td>${{price}}</td>
+            </tr>
+            {{/.}}
+        </tbody>
+    </table>
+    {{/items}}
+
+    {{^items}}
+    <p>No hay artículos disponibles para la venta.</p>
+    {{/items}}
+
+    <script src="/script.js"></script>
+</body>
+</html>

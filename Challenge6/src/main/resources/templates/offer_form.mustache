@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Crear Oferta</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h1>Crear Nueva Oferta</h1>
+    <form action="/offers" method="post">
+        <label for="itemId">Artículo:</label>
+        <select name="itemId" id="itemId" required>
+            {{#items}}
+            <option value="{{id}}">{{name}} - ${{price}}</option>
+            {{/items}}
+        </select>
+        <br><br>
+
+        <label for="offerPrice">Precio ofrecido:</label>
+        <input type="number" name="offerPrice" id="offerPrice" step="0.01" required>
+        <br><br>
+
+        <label for="offerUser">Correo de contacto:</label>
+        <input type="email" name="offerUser" id="offerUser" required>
+        <br><br>
+
+        <button type="submit">Enviar Oferta</button>
+    </form>
+
+    <a href="/offers">← Volver a la lista de ofertas</a>
+</body>
+</html>
